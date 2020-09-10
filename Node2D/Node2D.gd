@@ -8,13 +8,17 @@ var scale_steps = 0
 onready var global = get_node("/root/Global")
 
 func translating(px,py,amount):
-	pass
+  position.x = sin(px)*amount
+  position.y = sin(py)*amount
 
 func rotating(rad):
-	pass
+  rotation = sin(rot_steps)
+  rot_steps += 0.005
 	
 func scaling(amount):
-	pass
+  scale.x = sin(amount) + 1.1
+  scale.y = sin(amount) + 1.1
+  scale_steps += 0.003
 
 
 func _physics_process(delta):
@@ -23,4 +27,6 @@ func _physics_process(delta):
 	translating(posx_steps,posy_steps,600)
 	rotating(rot_steps)
 	scaling(scale_steps)
+	posx_steps += 0.007
+	posy_steps += 0.011
 
